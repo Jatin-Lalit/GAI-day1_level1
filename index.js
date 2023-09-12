@@ -4,6 +4,8 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const app = express();
 app.use(express.json());
 require('dotenv').config(); 
+const cors=require("cors");
+app.use(cors());
 const OPENAI_API_KEY = process.env.OPENAI_API_KE;
 
 // app.post('/', async (req, res) => {
