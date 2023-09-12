@@ -9,12 +9,13 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KE;
 app.post('/', async (req, res) => {
   try {
     const userQuery = req.body.query;
+    const topic=req.body.topic;
 
     // Send the user's query to the OpenAI GPT API
     const response = await axios.post(
       'https://api.openai.com/v1/engines/davinci-codex/completions',
       {
-        prompt: userQuery,
+        prompt: `create me a ${topic} on ${userQuery}`,
         max_tokens: 50, // Adjust the response length as needed
       },
       {
